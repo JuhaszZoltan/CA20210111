@@ -37,6 +37,8 @@ namespace CA20210111
 
         private static void F07()
         {
+            if (elso == -1)
+                throw new Exception("Ez a feladat nem megvalósítható, ha a 4. feladat még nem futott le");
             var r = csapatok.Where(cs => cs.Orszag == "Magyarország");
             Console.WriteLine($"\n7. feladat: Magyarország " +
                 $"{(r.Count() == 0 || elso != r.First().ElsoReszvetel ? "nem volt ott" : "ott volt")}" +
