@@ -89,7 +89,7 @@ namespace CA20210111
         }
 
         private static void F01() => 
-            Console.WriteLine($"1. feladat: csapatok száma: {csapatok.Count}");
+            Console.WriteLine($"\n1. feladat: csapatok száma: {csapatok.Count}");
 
         private static void F00()
         {
