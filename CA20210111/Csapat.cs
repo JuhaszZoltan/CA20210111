@@ -22,11 +22,9 @@ namespace CA20210111
                 LegutobbiReszvetel = int.Parse(a[3]);
                 LejobbEredmeny = a[4];
             }
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine(e.Message);
-                Console.WriteLine($"\n\nAdatfeldolgozási hiba a következő sorban:\n\n{r}");
-                throw;
+                throw new Exception($"Adatfeldolgozási hiba a következő sorban:\n{r}");
             }
         }
     }
