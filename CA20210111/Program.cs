@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CA20210111
 {
     class Program
     {
         static List<Csapat> csapatok;
-        static int elso = -1;
+        static int? elso;
         static void Main()
         {
             F00();
@@ -32,13 +31,13 @@ namespace CA20210111
                 //.Select(cs => new { cs.Orszag, cs.ElsoRszvetelOtaElteltEv, })
                 .ToList().ForEach(e => sw.WriteLine($"{e.Orszag}: {e.ElsoRszvetelOtaElteltEv}"));
             sw.Close();
-            Console.WriteLine("\n8. feladat: legtobbszor.txt kész!");
+            Console.WriteLine($"\n8. feladat: legtobbszor.txt elkészült!");
         }
 
         private static void F07()
         {
-            if (elso == -1)
-                throw new Exception("Ez a feladat nem megvalósítható, ha a 4. feladat még nem futott le");
+            if (elso is null)
+                throw new Exception("Ez a feladat nem megvalósítható, ha az 'elso' változó nem kap értéket (4. feladat)");
             var r = csapatok.Where(cs => cs.Orszag == "Magyarország");
             Console.WriteLine($"\n7. feladat: Magyarország " +
                 $"{(r.Count() == 0 || elso != r.First().ElsoReszvetel ? "nem volt ott" : "ott volt")}" +
